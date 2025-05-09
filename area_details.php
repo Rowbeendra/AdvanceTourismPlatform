@@ -130,6 +130,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 
                 <div class="col-md-4">
+                    <div class="card sticky-sidebar">
+                        <h3>Actions & Rating</h3>
+                        <a href="booking.php?type=tourist_area&id=<?php echo $area_id; ?>" class="btn btn-success btn-block mb-2">Book This Experience</a>
+                        
+                        <form id="visit-form" action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post" class="mb-2">
+                            <input type="hidden" name="visit" value="1">
+                            <button type="submit" class="btn btn-accent visit-btn">I'm Visiting This Place</button>
+                        </form>
+                    </div>
+                    
                     <div class="card rating-card">
                         <h3>Rate This Tourist Area</h3>
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?id=" . $area_id); ?>" method="post">

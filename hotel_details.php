@@ -97,9 +97,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["rating"])) {
                 </div>
                 
                 <div class="col-md-4">
-                    <div class="card rating-card">
-                        <h3>Rate This Hotel</h3>
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?id=" . $hotel_id); ?>" method="post">
+                    <div class="card sticky-sidebar">
+                        <h3>Booking & Rating</h3>
+                        <a href="booking.php?type=hotel&id=<?php echo $hotel_id; ?>" class="btn btn-success btn-block mb-3">Book Now</a>
+                        
+                        <h4>Rate this Hotel</h4>
+                        <form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post">
                             <div class="star-rating">
                                 <input type="radio" id="star5" name="rating" value="5">
                                 <label for="star5"><i class="fas fa-star"></i></label>

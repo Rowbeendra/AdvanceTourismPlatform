@@ -54,6 +54,18 @@ $locations = getAllLocations();
                 </div>
             </div>
         </div>
+        
+        <!-- Personalized Recommendations Option -->
+        <div class="option-card">
+            <div class="option-card-img" style="background-image: url('images/recommendations-bg.jpg');"></div>
+            <div class="option-card-content">
+                <h3>Personalized Recommendations</h3>
+                <p>Get tailored suggestions based on your preferences and similar users.</p>
+                <div class="option-buttons">
+                    <a href="recommendations.php" class="btn btn-primary">View Recommendations</a>
+                </div>
+            </div>
+        </div>
     </div>
     
     <div class="section-title fade-in">

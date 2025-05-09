@@ -16,6 +16,7 @@ $locations = getAllLocations();
 
 <div class="container">
     <div class="section-title fade-in">
+        <br>
         <h1>Travel Guide</h1>
     </div>
     

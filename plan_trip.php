@@ -49,21 +49,13 @@ $destination_areas = getTouristAreasNearMe($destination, 3);
             <h3>Travel Route</h3>
             
             <div class="route-details">
-                <div class="route-map">
-                    <!-- Simulated Route Map -->
-                    <div class="simulated-route-map">
-                        <div class="route-points">
-                            <div class="route-point source">
-                                <i class="fas fa-circle"></i>
-                                <span><?php echo $source; ?></span>
-                            </div>
-                            <div class="route-line"></div>
-                            <div class="route-point destination">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span><?php echo $destination; ?></span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="route-map" style="position: relative; /* Needed for potential overlays */">
+                    <!-- Leaflet Map Container -->
+                    <div id="leaflet-map" style="height: 400px; width: 100%; border-radius: 8px; margin-bottom: 15px;"></div>
+
+                    <!-- Hidden elements to store source/destination for JS -->
+                    <span id="source-loc" style="display: none;"><?php echo htmlspecialchars($source); ?></span>
+                    <span id="destination-loc" style="display: none;"><?php echo htmlspecialchars($destination); ?></span>
                 </div>
                 
                 <div class="route-info">
@@ -71,8 +63,9 @@ $destination_areas = getTouristAreasNearMe($destination, 3);
                         <div class="stat-item">
                             <i class="fas fa-clock"></i>
                             <div class="stat-details">
-                                <span class="stat-label">Travel Time</span>
-                                <span class="stat-value"><?php echo $travel_time; ?></span>
+                                <span class="stat-label">Est. Travel Time</span>
+                                <!-- JS will update this -->
+                                <span class="stat-value" id="travel-time">Calculating...</span>
                             </div>
                         </div>
                         
@@ -80,7 +73,8 @@ $destination_areas = getTouristAreasNearMe($destination, 3);
                             <i class="fas fa-road"></i>
                             <div class="stat-details">
                                 <span class="stat-label">Distance</span>
-                                <span class="stat-value"><?php echo $distance; ?></span>
+                                <!-- JS will update this -->
+                                <span class="stat-value" id="travel-distance">Calculating...</span>
                             </div>
                         </div>
                         
@@ -88,7 +82,8 @@ $destination_areas = getTouristAreasNearMe($destination, 3);
                             <i class="fas fa-gas-pump"></i>
                             <div class="stat-details">
                                 <span class="stat-label">Est. Fuel Cost</span>
-                                <span class="stat-value">$<?php echo round(intval($distance) * 0.1, 2); ?></span>
+                                <!-- JS will update this based on distance -->
+                                <span class="stat-value" id="fuel-cost">Calculating...</span>
                             </div>
                         </div>
                     </div>

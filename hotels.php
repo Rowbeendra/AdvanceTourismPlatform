@@ -66,6 +66,7 @@ $locations = getAllLocations();
         
         <?php foreach($hotels as $hotel): ?>
         <div class="entity-card">
+            <?php echo $hotel['image'] ?>
             <div class="entity-img" style="background-image: url('images/<?php echo $hotel['image']; ?>');">
                 <div class="entity-rating"><i class="fas fa-star"></i> <?php echo number_format($hotel['rating'], 1); ?></div>
             </div>
